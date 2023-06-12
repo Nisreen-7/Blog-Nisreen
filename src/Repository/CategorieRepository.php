@@ -34,6 +34,18 @@ class CategorieRepository
         $data->setId($connection->lastInsertId());
 
     }
+    public function getCategorieById(int $id): ?Categorie
+    {
+
+        $connection = Database::getConnection();
+        $query = $connection->prepare("select * From categorie where id=:id ");
+        $query->bindValue(':id', $id);
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            return new Categorie($line['name'], $line['id']);
+        }
+        return null;
+    }
 
 
 

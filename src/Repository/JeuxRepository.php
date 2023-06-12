@@ -6,7 +6,7 @@ use App\Entity\Jeux;
 /**
  * @return Jeux[];
  */
-class BookRepository
+class JeuxRepository
 {
     // findAll / findbyid / persist/ update /delete
     public function listArticle(): array
@@ -16,12 +16,26 @@ class BookRepository
         $query = $connection->prepare("select * From article ");
         $query->execute();
         foreach ($query->fetchAll() as $line) {
-            $list[] = new Jeux($line['label'], $line['prix'], $line['description'],$line['image'], $line['id']);
+            $list[] = new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id_categorie'], $line['id']);
         }
         return $list;
     }
+    public function listArticleById(int $id): ?Jeux
+    {
 
-   
+        $connection = Database::getConnection();
+        $query = $connection->prepare("select * From article where id=:id ");
+        $query->bindValue(':id', $id);
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            return new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id_categorie'], $line['id']);
+        }
+        return null;
+    }
+
+
+
+
 
     public function postArticle(Jeux $data)
     {
@@ -43,7 +57,7 @@ class BookRepository
 
     public function listArticleByCategorie(int $id_categorie): ?Jeux
     {
-    
+
         $connection = Database::getConnection();
         $query = $connection->prepare("select * from article where id_categorie=:id_categorie");
         $query->bindValue(':id', $id_categorie);
@@ -51,10 +65,10 @@ class BookRepository
 
 
         foreach ($query->fetchAll() as $line) {
-            return new Jeux($line['label'], $line['prix'], $line['description'],$line['image'], $line['id']);
+            return new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id']);
         }
         return null;
     }
 
-   
+
 }

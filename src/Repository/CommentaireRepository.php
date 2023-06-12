@@ -10,12 +10,12 @@ use App\Entity\Jeux;
 
 class CommentaireRepository
 {
-    // findAll / findbyid / persist/ update /delete
     public function listCommentaire(int $id_article): array
     {
         $list = [];
         $connection = Database::getConnection();
         $query = $connection->prepare("select * From commentaire where id_article=:id_article ");
+        $query->bindValue(":id_article", $id_article);
         $query->execute();
         foreach ($query->fetchAll() as $line) {
             $list[] = new Commentaire($line['commentaire'], $line['id_article'], $line['id']);
@@ -37,6 +37,19 @@ class CommentaireRepository
         //  pour prend id en la main 
         $data->setId($connection->lastInsertId());
 
+    }
+
+    public function getCommentaireId(int $id): ?Commentaire
+    {
+
+        $connection = Database::getConnection();
+        $query = $connection->prepare("select * From commentaire where id=:id ");
+        $query->bindValue(':id', $id);
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            return new Commentaire($line['commentaire'], $line['id']);
+        }
+        return null;
     }
 
 
