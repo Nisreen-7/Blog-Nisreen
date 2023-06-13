@@ -19,7 +19,7 @@ $category = $repocategorie->listCategorie()
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="shortcut icon" href="./favicon.ico/x.png" />
+    <link rel="shortcut icon" href="./favicon.ico/xx.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -28,13 +28,13 @@ $category = $repocategorie->listCategorie()
 </head>
 
 <body>
-    <header class="row">
+    <header class="row" height="50px">
         <div class="col-2">
-            <img src="images/logo.svg" class="img-fluid rounded " alt="hello" />
+            <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
             <marquee>
-                <p class="marquee-item fs-3 fst-italic py-3">
+                <p class="marquee-item fs-3 fst-italic p-5 mb-2">
                     Bienvenue dans ma BLOG pour trouver toutes les jeux d'enfant
             </marquee>
         </div>
