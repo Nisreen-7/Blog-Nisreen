@@ -17,25 +17,7 @@ require '../vendor/autoload.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>single-Jeux</title>
-    <script>
-        const target = document.getElementById('com');
 
-        com.addEventListener('click', () => {
-            cc.innerHTML = `
-
-            <h5>Les Commentaire</h5>
-                        <?php
-                        foreach ($commentaire as $line) {
-                            ?> 
-                                              <p ><?= $line->getCommentaire() ?></p>
-                                              <hr/>
-                        <?php } ?>
-
-`
-        )}
-
-
-    </script>
 </head>
 
 <body>
@@ -70,12 +52,15 @@ require '../vendor/autoload.php';
                         Le Categorie :
                         <?= $category->getName(); ?>
                     </p>
+                    <div>
+                        <a id="com" class="card-link" style="text-decoration: none;">Les Commentaires de clients</a>
 
-                    <a id="com" class="card-link" href="#">Les Commentaires de clients</a>
+                        <span id="cc">
 
-                    <p class="cc"></p>
-
-
+                        </span>
+                        <br>
+                    </div>
+                    <br>
                     <a class="card-link btn btn-primary mb-3" href="javascript:history.go(-1)">Retour a la page
                         precedant</a>
 
@@ -83,3 +68,24 @@ require '../vendor/autoload.php';
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        document.getElementById('com').addEventListener('click', () => {
+            document.getElementById('cc').innerHTML =
+                ` 
+            <?php foreach ($commentaire as $line) {
+                ?>
+                            <h4><?= $jeux->getLabel() ?> il est : </h4>
+                            <?= "*" . $line->getCommentaire() ?>
+                            <hr>
+                   
+                            <?php } ?>
+                             `;
+
+        });
+
+    </script>
+
+</body>
+
+</html>

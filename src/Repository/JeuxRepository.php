@@ -32,6 +32,18 @@ class JeuxRepository
         }
         return null;
     }
+    public function listArticleByIdCat(int $id_categorie): ?Jeux
+    {
+
+        $connection = Database::getConnection();
+        $query = $connection->prepare("select * From article where id_categorie=:id_categorie ");
+        $query->bindValue(':id_categorie', $id_categorie);
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            return new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id_categorie'], $line['id']);
+        }
+        return null;
+    }
 
 
 
