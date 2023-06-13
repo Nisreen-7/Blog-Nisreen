@@ -6,7 +6,7 @@ class Jeux
 	private ?int $id;
 	private string $label;
 
-	private float $prix;
+	private int $prix;
 	private string $description;
 	private string $image;
 

@@ -1,35 +1,21 @@
 <?php
+use App\Entity\Commentaire;
 use App\Entity\Jeux;
 use App\Repository\CategorieRepository;
 use App\Repository\CommentaireRepository;
 use App\Repository\JeuxRepository;
 
 require '../vendor/autoload.php';
-
-
-$rep = new JeuxRepository();
-
-if (isset($_GET['id'])) {
-
-    $jeux = $rep->listArticleByCategorie($_GET['id']);
-} else {
-
-
-    $jeux = $rep->listArticle();
-}
-
 $repocategorie = new CategorieRepository();
 $category = $repocategorie->listCategorie();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <link rel="shortcut icon" href="./favicon.ico/xx.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,10 +23,11 @@ $category = $repocategorie->listCategorie();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <title>Les jeux </title>
+    <title>ADD JEU</title>
 </head>
 
 <body>
+    <!-- partie commun avec les page -->
     <header class="row" height="50px">
         <div class="col-2">
             <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
@@ -64,7 +51,7 @@ $category = $repocategorie->listCategorie();
             <a href="index.php"
                 class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
                     src="images/home.png" class="img-icon " width="22px" height="22px">Acceuil</a>
-        
+
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <button
@@ -82,7 +69,7 @@ $category = $repocategorie->listCategorie();
                     <a href="add-categorie.php"
                         class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
                         Nouvel Categorie</a>
-                    <a href="add-jeux.php"
+                    <a href="#"
                         class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
                         Nouvel Jeux</a>
 
@@ -93,48 +80,49 @@ $category = $repocategorie->listCategorie();
 
 
     <hr>
-    <br>
-    <!-- partie les jeux -->
-    <div class="container-fluid align-center">
-        <div class="row g-3">
-            <?php
-
-            foreach ($jeux as $line) { ?>
-
-                <div class="col-lg-3 col-md-4  col-sm-6 ">
-                    <div class="card   h-75 shadow-lg p-3 mb-5 bg-body rounded">
-                        <img class="card-img-top" src="<?= ($line->getImage()) ?>" height="100%">
-
-                        <div class="card-body">
-
-                            <h3 class="card-title">
-                                <?= htmlspecialchars($line->getLabel()) ?>
-                            </h3>
-
-                            <p class="card-text">
-                                <?= htmlspecialchars($line->getDescription()) ?>
-                            </p>
-                            <b>
-                                <p class="card-text text-end">
-                                    <?= htmlspecialchars($line->getPrix()) ?> €
-                                </p>
-                            </b>
-
-                            <a href="single-jeux.php?id=<?= $line->getId() ?>" class="card-link mb-2 btn btn-primary ">Plus
-                                Detailles
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-            <?php }
 
 
-            ?>
-        </div>
+    <!-- partie form de ajouter un nouvel jeu -->
+    <div class="container shadow-sm p-3 ml-5 bg-body-tertiary rounded">
 
+        <h3>Add-Jeu</h3>
+        <form action="#" method="post">
+            <div class="mb-3">
+                <label for="label">Add Jeu: </label>
+                <input type="text" name="label" class="form-control " placeholder="add le nouvel jeu" required>
+            </div>
+            <div class="mb-3">
+                <label for="prix">Add prix: </label>
+                <input type="number" name="prix" class="form-control " placeholder="add le prix" required>
+            </div>
+            <div class="mb-3">
+                <label for="description">Add description: </label>
+                <input type="textarea" name="description" class="form-control " placeholder="add la description"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="id_categorie">Add categorie: </label>
+                <input type="number" name="id_categorie" class="form-control " placeholder="add l'id du categorie"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="image">Add image: </label>
+                <input type="text" name="image" class="form-control " placeholder="add url de l'image" required>
+            </div>
+
+            <button type="submit" class="btn btn-info"> ADD </button>
+        </form>
+        <?php
+        if (isset($_POST['label']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['id_categorie'])) {
+            $repo = new JeuxRepository();
+
+            $nouveljeux = new Jeux($_POST['label'], intval($_POST['prix']), $_POST['description'], $_POST['image'], intval($_POST['id_categorie']), 0);
+            $repo->postArticle($nouveljeux);
+            echo '<p class="text-success">Vous avez ajouter un nouvel jeu avec' . $nouveljeux->getId() . '</p>';
+        }
+        ?>
     </div>
+
 
     <div class="footer">
         <p class="text-center pb-2 bg-info">&copy; Nisreen@gmail.com M2I 2023</p>

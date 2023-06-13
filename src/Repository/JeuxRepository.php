@@ -32,19 +32,6 @@ class JeuxRepository
         }
         return null;
     }
-    public function listArticleByIdCat(int $id_categorie): ?Jeux
-    {
-
-        $connection = Database::getConnection();
-        $query = $connection->prepare("select * From article where id_categorie=:id_categorie ");
-        $query->bindValue(':id_categorie', $id_categorie);
-        $query->execute();
-        foreach ($query->fetchAll() as $line) {
-            return new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id_categorie'], $line['id']);
-        }
-        return null;
-    }
-
 
 
 
@@ -52,12 +39,13 @@ class JeuxRepository
     public function postArticle(Jeux $data)
     {
         $connection = Database::getConnection();
-        $query = $connection->prepare("insert into article (id,label,prix,description,image )VALUES(:id,:label,:prix,:description,:image)");
+        $query = $connection->prepare("insert into article (id,label,prix,description,image,id_categorie )VALUES(:id,:label,:prix,:description,:image,:id_categorie )");
         $query->bindValue(':id', $data->getId());
         $query->bindValue(':label', $data->getLabel());
         $query->bindValue(':prix', $data->getPrix());
         $query->bindValue(':description', $data->getDescription());
         $query->bindValue(':image', $data->getImage());
+        $query->bindValue(':id_categorie', $data->getId_categorie());
 
         $query->execute();
         //  pour prend id en la main 
@@ -67,19 +55,19 @@ class JeuxRepository
 
 
 
-    public function listArticleByCategorie(int $id_categorie): ?Jeux
+    public function listArticleByCategorie(int $id_categorie): ?array
     {
-
+        $list = [];
         $connection = Database::getConnection();
         $query = $connection->prepare("select * from article where id_categorie=:id_categorie");
-        $query->bindValue(':id', $id_categorie);
+        $query->bindValue(':id_categorie', $id_categorie);
         $query->execute();
 
 
         foreach ($query->fetchAll() as $line) {
-            return new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id']);
+            $list[] = new Jeux($line['label'], $line['prix'], $line['description'], $line['image'], $line['id_categorie'], $line['id']);
         }
-        return null;
+        return $list;
     }
 
 

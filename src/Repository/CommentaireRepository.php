@@ -39,7 +39,7 @@ class CommentaireRepository
 
     }
 
-    public function getCommentaireId(int $id): ?Commentaire
+    public function getCommentaireById(int $id): ?Commentaire
     {
 
         $connection = Database::getConnection();
