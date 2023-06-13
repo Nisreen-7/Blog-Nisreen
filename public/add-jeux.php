@@ -33,9 +33,9 @@ $category = $repocategorie->listCategorie();
             <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee>
-                <p class="marquee-item fs-3 fst-italic p-5 mb-2">
-                    Bienvenue dans ma BLOG pour trouver toutes les jeux d'enfant
+            <marquee style="color:#00BFFF;line-height:200px">
+                <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
+                    Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
         </div>
     </header>
@@ -46,7 +46,7 @@ $category = $repocategorie->listCategorie();
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
             <a href="index.php"
                 class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
@@ -78,10 +78,6 @@ $category = $repocategorie->listCategorie();
         </div>
     </nav>
 
-
-    <hr>
-
-
     <!-- partie form de ajouter un nouvel jeu -->
     <div class="container shadow-sm p-3 ml-5 bg-body-tertiary rounded">
 
@@ -101,16 +97,27 @@ $category = $repocategorie->listCategorie();
                     required>
             </div>
             <div class="mb-3">
-                <label for="id_categorie">Add categorie: </label>
-                <input type="number" name="id_categorie" class="form-control " placeholder="add l'id du categorie"
-                    required>
+
+
+
+                <select name="id_categorie" class="form-select" aria-label="Add categorie:">
+                    <option disabled selected>Choisir attentifment un Categorie disponible</option>
+                    <?php foreach ($category as $key => $item) {
+                        ?>
+                        <option value="<?= $item->getId() ?>">
+                            <?= $item->getName() ?>
+                        </option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="image">Add image: </label>
                 <input type="text" name="image" class="form-control " placeholder="add url de l'image" required>
             </div>
 
-            <button type="submit" class="btn btn-info"> ADD </button>
+            <button type="submit" class="badge rounded-pill bg-warning text-dark"> ADD </button><br><br>
+            <a class="card-link btn btn-success mb-3" href="index.php">Retour a la page
+                d'accueil</a>
         </form>
         <?php
         if (isset($_POST['label']) && isset($_POST['description']) && isset($_POST['prix']) && isset($_POST['id_categorie'])) {
@@ -122,6 +129,9 @@ $category = $repocategorie->listCategorie();
         }
         ?>
     </div>
+
+
+
 
 
     <div class="footer">

@@ -37,7 +37,7 @@ $category = $repocategorie->listCategorie();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <title>Les jeux </title>
+    <title>BLOG-NISREEN </title>
 </head>
 
 <body>
@@ -46,9 +46,9 @@ $category = $repocategorie->listCategorie();
             <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee>
-                <p class="marquee-item fs-3 fst-italic p-5 mb-2">
-                    Bienvenue dans ma BLOG pour trouver toutes les jeux d'enfant
+            <marquee style="color:#00BFFF;line-height:200px">
+                <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
+                    Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
         </div>
     </header>
@@ -59,12 +59,12 @@ $category = $repocategorie->listCategorie();
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
             <a href="index.php"
                 class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
                     src="images/home.png" class="img-icon " width="22px" height="22px">Acceuil</a>
-        
+
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <button
@@ -92,8 +92,6 @@ $category = $repocategorie->listCategorie();
     </nav>
 
 
-    <hr>
-    <br>
     <!-- partie les jeux -->
     <div class="container-fluid align-center">
         <div class="row g-3">

@@ -33,9 +33,9 @@ require '../vendor/autoload.php';
             <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee>
-                <p class="marquee-item fs-3 fst-italic p-5 mb-2">
-                    Bienvenue dans ma BLOG pour trouver toutes les jeux d'enfant
+            <marquee style="color:#00BFFF;line-height:200px">
+                <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
+                    Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
         </div>
     </header>
@@ -46,9 +46,9 @@ require '../vendor/autoload.php';
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
-            <a
+            <a href="index.php"
                 class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
                     src="images/home.png" class="img-icon " width="22px" height="22px">Acceuil</a>
 
@@ -77,11 +77,6 @@ require '../vendor/autoload.php';
             </div>
         </div>
     </nav>
-
-
-    <hr>
-    <br>
-
 
 
 
@@ -152,7 +147,7 @@ require '../vendor/autoload.php';
     </div>
     <!-- parti ajouter les commentaire -->
     <?php
-    if ($_POST['add']) {
+    if (isset($_POST['add'])) {
         $x = $_POST['add'];
         $addcom = new Commentaire($x, $jeux->getId(), 0);
         $repocommentaire->addCommentaire($addcom);

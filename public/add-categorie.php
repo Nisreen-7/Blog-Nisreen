@@ -31,10 +31,12 @@ $category = $repocategorie->listCategorie();
             <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee>
-                <p class="marquee-item fs-3 fst-italic p-5 mb-2">
-                    Bienvenue dans ma BLOG pour trouver toutes les jeux d'enfant
+            <marquee style="color:#00BFFF;line-height:200px">
+                <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
+                    Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
+
+
         </div>
     </header>
 
@@ -44,7 +46,7 @@ $category = $repocategorie->listCategorie();
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
             <a href="index.php"
                 class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
@@ -76,11 +78,6 @@ $category = $repocategorie->listCategorie();
         </div>
     </nav>
 
-
-    <hr>
-    <br>
-
-
     <!-- parti form pour add nouvel categorie -->
     <div class="container c">
 
@@ -89,8 +86,9 @@ $category = $repocategorie->listCategorie();
 
             <label for="">Add Nouvel Categorie :</label>
             <input type="textarea" name="addcat" class="form-control ">
-            <button class="badge rounded-pill bg-warning text-dark"> Add </button>
-
+            <button class="badge rounded-pill bg-warning text-dark"> Add </button><br>
+            <a class="card-link btn btn-success mt-3" href="index.php">Retour a la page
+                d'accueil</a>
         </form>
 
 
@@ -108,6 +106,7 @@ $category = $repocategorie->listCategorie();
 
         ?>
     </div>
+    <br>
 
 
     <div class="footer">
