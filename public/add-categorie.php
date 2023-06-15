@@ -22,16 +22,34 @@ $category = $repocategorie->listCategorie();
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <title>ADD CATEGORIE</title>
+    <style>
+        div.NN {
+            width: 40%;
+            background-image: linear-gradient(180deg, #b0e5f7, white);
+
+        }
+
+        header {
+            background-image: linear-gradient(180deg, #42c8f5, white);
+        }
+
+        a.NN {
+            background-color: #93dcf5;
+        }
+        .footer {
+            background-color: #42c8f5;
+        }
+    </style>
 </head>
 
 <body>
     <!-- partie commun avec les page -->
     <header class="row" height="50px">
         <div class="col-2">
-            <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
+            <img src="images/logo.png" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee style="color:#00BFFF;line-height:200px">
+            <marquee style="color:#000;line-height:200px">
                 <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
                     Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
@@ -49,28 +67,28 @@ $category = $repocategorie->listCategorie();
                 <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
             <a href="index.php"
-                class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
+                class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover"><img
                     src="images/home.png" class="img-icon " width="22px" height="22px">Acceuil</a>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <button
-                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover btn dropdown-toggle offset"
+                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover btn dropdown-toggle offset"
                         type="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
                     <ul class="dropdown-menu">
                         <?php foreach ($category as $item) {
                             ?>
                             <li><a href="index.php?id=<?= $item->getId() ?>"
-                                    class=" dropdown-item nav-link shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover ">
+                                    class=" dropdown-item nav-link shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover ">
                                     <?= $item->getName() ?>
                                 </a></li>
                         <?php } ?>
                     </ul>
                     <a href="#"
-                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
+                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover">Add
                         Nouvel Categorie</a>
                     <a href="add-jeux.php"
-                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
+                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover">Add
                         Nouvel Jeux</a>
 
                 </div>
@@ -79,15 +97,15 @@ $category = $repocategorie->listCategorie();
     </nav>
 
     <!-- parti form pour add nouvel categorie -->
-    <div class="container c">
+    <div class="NN container">
 
-        <h3 class="bg-info shadow-sm p-3 ml-5 bg-body-tertiary rounded">Add-Categorie </h3>
+        <h3 class="shadow-sm p-3 ml-5 bg-body-tertiary rounded">Add-Categorie </h3>
         <form method="post">
 
             <label for="">Add Nouvel Categorie :</label>
             <input type="textarea" name="addcat" class="form-control ">
             <button class="badge rounded-pill bg-warning text-dark"> Add </button><br>
-            <a class="card-link btn btn-success mt-3" href="index.php">Retour a la page
+            <a class="NN card-link btn btn-info mt-3" href="index.php">Retour a la page
                 d'accueil</a>
         </form>
 
@@ -95,7 +113,7 @@ $category = $repocategorie->listCategorie();
         <!-- parti ajouter les categorie -->
         <?php
 
-        if (isset($_POST['addcat'])) {
+        if (!empty($_POST['addcat'])) {
             $x = $_POST['addcat'];
             $addcat = new Categorie($x, 0);
             $repocategorie = new CategorieRepository();
@@ -110,7 +128,7 @@ $category = $repocategorie->listCategorie();
 
 
     <div class="footer">
-        <p class="text-center pb-2 bg-info">&copy; Nisreen@gmail.com M2I 2023</p>
+        <p class="text-center mb-2 mt-2 "> &copy; 2023 BLOG-NISREEN M2I </p>
     </div>
 </body>
 </body>

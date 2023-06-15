@@ -23,6 +23,21 @@ require '../vendor/autoload.php';
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <title>single-Jeux</title>
+    <style>
+        div.NN {
+            background-image: linear-gradient(180deg, #b0e5f7, white);
+            width: 33%;
+
+
+        }
+
+        header {
+            background-image: linear-gradient(180deg, #42c8f5, white);
+        }
+        .footer {
+            background-color: #42c8f5;
+        }
+    </style>
 
 </head>
 
@@ -30,7 +45,7 @@ require '../vendor/autoload.php';
     <!-- partie commun avec les page -->
     <header class="row" height="50px">
         <div class="col-2">
-            <img src="images/logo3.avif" class="img-fluid rounded " alt="hello" />
+            <img src="images/logo.png" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
             <marquee style="color:#00BFFF;line-height:200px">
@@ -91,7 +106,7 @@ require '../vendor/autoload.php';
     $commentaire = $repocommentaire->listCommentaire($id);
     ?>
     <!-- partie card de single jeux -->
-    <div class="container-fluid  ">
+    <div class=" NN container-fluid  ">
         <div class="row justify-content-md-center ">
             <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 30rem;">
                 <img class="card-img-top" src="<?= ($jeux->getImage()) ?>" alt="Card image cap">
@@ -165,7 +180,7 @@ require '../vendor/autoload.php';
 
     </script>
     <div class="footer">
-        <p class="text-center pb-2 bg-info">&copy; Nisreen@gmail.com M2I 2023</p>
+        <p class="text-center mb-2 mt-2"> &copy; 2023 BLOG-NISREEN M2I </p>
     </div>
 </body>
 
