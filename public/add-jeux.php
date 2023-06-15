@@ -100,7 +100,7 @@ $category = $repocategorie->listCategorie();
     <!-- partie form de ajouter un nouvel jeu -->
     <div class=" NN container shadow-sm p-3 ml-5 bg-body-tertiary rounded">
 
-        <h3>Add Nouvel Jeu</h3>
+        <h3 class="shadow-sm p-3 ml-5 bg-body-tertiary rounded">Add Nouvel Jeu</h3>
         <form action="#" method="post">
             <div class="mb-3">
                 <label for="label rounded">Add Jeu: </label>

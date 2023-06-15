@@ -34,6 +34,7 @@ require '../vendor/autoload.php';
         header {
             background-image: linear-gradient(180deg, #42c8f5, white);
         }
+
         .footer {
             background-color: #42c8f5;
         }
@@ -48,7 +49,7 @@ require '../vendor/autoload.php';
             <img src="images/logo.png" class="img-fluid rounded " alt="hello" />
         </div>
         <div class="col-10">
-            <marquee style="color:#00BFFF;line-height:200px">
+            <marquee style="color:#000;line-height:200px">
                 <p class="marquee-item fs-3 fst-italic p-5 mb-2 ">
                     Bienvenue dans un BLOG-NISREEN pour trouver toutes les jeux d'enfants
             </marquee>
@@ -64,29 +65,29 @@ require '../vendor/autoload.php';
                 <span class="navbar-toggler-icon" id="navbarNavAltMarkup"></span>
             </button>
             <a href="index.php"
-                class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover"><img
+                class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover"><img
                     src="images/home.png" class="img-icon " width="22px" height="22px">Acceuil</a>
 
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <button
-                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover btn dropdown-toggle offset"
+                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover btn dropdown-toggle offset"
                         type="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
                     <ul class="dropdown-menu">
                         <?php foreach ($category as $item) {
                             ?>
                             <li><a href="index.php?id=<?= $item->getId() ?>"
-                                    class=" dropdown-item nav-link shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover ">
+                                    class=" dropdown-item nav-link shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover ">
                                     <?= $item->getName() ?>
                                 </a></li>
                         <?php } ?>
                     </ul>
                     <a href="add-categorie.php"
-                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
+                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover">Add
                         Nouvel Categorie</a>
-                    <a hreh="add-jeux.php"
-                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded link-danger link-opacity-100-hover">Add
-                        Nouvel Jeux</a>
+                    <a href="add-jeux.php"
+                        class=" text-decoration-none shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover">Add
+                        Nouvel Jeu</a>
 
                 </div>
             </div>

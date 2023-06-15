@@ -68,7 +68,7 @@ VALUES (
         'Chicco Dindolino',
         'https://m.media-amazon.com/images/I/41l4KMGhfDL._AC_SL1000_.jpg',
         50,
-        'Chicco Dindolino',
+        'Chicco DindolinoJouets Ecoiffier - 846 - Sac demi-lune et ses briques à empiler Abrick – Jeu de construction pour enfants – 100 pièces – Dès 18 mois – Fabriqué en France ',
         2
     ), (
         6,

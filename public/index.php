@@ -117,7 +117,7 @@ $category = $repocategorie->listCategorie();
             foreach ($jeux as $line) { ?>
 
                 <div class="col-lg-3 col-md-4  col-sm-6 ">
-                    <div class="card h-100 shadow-lg p-3 mb-5 bg-body rounded">
+                    <div class="card h-100 shadow-lg p-3 mb-5  rounded">
                         <img class="card-img-top" src="<?= ($line->getImage()) ?>" height="100%">
 
                         <div class="card-body">
