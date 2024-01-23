@@ -51,7 +51,7 @@ $category = $repocategorie->listCategorie();
         }
 
         .footer {
-            background-color: #42c8f5;
+            background-color: #83D8F3;
         }
     </style>
 
@@ -85,7 +85,7 @@ $category = $repocategorie->listCategorie();
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <button
-                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover btn dropdown-toggle offset"
+                        class="shadow-sm p-3 mb-5 bg-body-tertiary rounded text-dark link-hover btn dropdown-toggle "
                         type="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</button>
                     <ul class="dropdown-menu">
                         <?php foreach ($category as $item) {
@@ -116,7 +116,7 @@ $category = $repocategorie->listCategorie();
 
             foreach ($jeux as $line) { ?>
 
-                <div class="col-lg-3 col-md-4  col-sm-6 ">
+                <div class="col-lg-3 col-md-4 col-sm-6 ">
                     <div class="card h-100 shadow-lg p-3 mb-5  rounded">
                         <img class="card-img-top" src="<?= ($line->getImage()) ?>" height="100%">
 

@@ -103,15 +103,15 @@ $category = $repocategorie->listCategorie();
         <h3 class="shadow-sm p-3 ml-5 bg-body-tertiary rounded">Add Nouvel Jeu</h3>
         <form action="#" method="post">
             <div class="mb-3">
-                <label for="label rounded">Add Jeu: </label>
-                <input type="text" name="label" class="form-control " placeholder="add le nouvel jeu" required>
+                <label for="label rounded">Add Tilte: </label>
+                <input type="text" name="label" class="form-control " placeholder="add le title de jeu" required>
             </div>
             <div class="mb-3">
-                <label for="prix">Add prix: </label>
+                <label for="prix">Add Prix: </label>
                 <input type="number" name="prix" class="form-control " placeholder="add le prix" required>
             </div>
             <div class="mb-3">
-                <label for="description">Add description: </label>
+                <label for="description">Add Description: </label>
                 <input type="textarea" name="description" class="form-control " placeholder="add la description"
                     required>
             </div>
@@ -129,7 +129,6 @@ $category = $repocategorie->listCategorie();
             <div class="mb-3">
                 <label for="image">Add image: </label>
                 <input type="text" name="image" class="form-control " placeholder="add url de l'image"><br>
-                <input type="file" name="image" class="form-control " placeholder="add url de l'image">
 
             </div>
 
